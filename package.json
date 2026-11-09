@@ -1,0 +1,13 @@
+{
+  "name": "tvbox-sources",
+  "private": true,
+  "description": "TVBox 影视源远程配置",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check-bump"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
