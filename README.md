@@ -16,7 +16,7 @@
 2. **把 `configVersion` 调大**，建议格式 `YYYYMMDDNN`（例如 `2026110902` 表示当天第 2 次修改），同时更新 `updatedAt`。
 3. 本地校验：`node scripts/build.mjs --check-bump`（需要 Node.js 18+，无第三方依赖）。
 4. 提交并推送到 `main`，Vercel 会自动构建部署，通常一分钟内生效。
-5. 电视端在下次启动、回到前台（距上次检查超过 6 小时）或在“设置 → 视频接口 → 影视源配置 → 检查更新”时获取新配置。
+5. 电视端在下次启动、回到前台（距上次检查超过 6 小时，上次检查失败时为 15 分钟）或在“设置 → 视频接口 → 影视源配置 → 检查更新”时获取新配置。
 
 Vercel 构建时会运行同一套校验。校验失败时构建失败，线上继续使用上一份配置，不会把坏配置推给电视。
 
@@ -71,6 +71,14 @@ Vercel 构建时会运行同一套校验。校验失败时构建失败，线上�
 - 校验失败、网络失败或远程版本低于本机缓存时，保留当前配置，不影响正常使用。
 - 已缓存的配置与 APK 内置配置比较版本，取较新的一份；升级 APK 后不会被旧缓存覆盖。
 - 首页线路被停用或删除时，自动切换到 `defaultHomeLineId`；用户扫码添加的自定义接口不受远程配置影响。
+
+## 部署
+
+- Vercel 项目 `djiteam/tvbox-sources` 已连接本仓库，推送 `main` 自动部署生产环境；构建命令和输出目录见 `vercel.json`。
+- Vercel 默认域名 `tvbox-sources-rho.vercel.app` 在国内常无法访问，所以不写进 `configUrls`。
+- 自定义域名 `tv.navs.dpdns.org` 的 DNS 在 Cloudflare（区域 `navs.dpdns.org`）：
+  - CNAME `tv` → `46da4ca9d640ed5c.vercel-dns-017.com`，代理状态保持“仅 DNS”，由 Vercel 签发和续期 HTTPS 证书。
+  - TXT `_vercel` 是 Vercel 的域名所有权验证记录，不要删除。
 
 ## 本地预览
 
