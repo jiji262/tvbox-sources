@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026110901,
-  "updatedAt": "2026-11-09T19:00:00+08:00",
-  "defaultHomeLineId": "liangzi",
+  "configVersion": 2026110902,
+  "updatedAt": "2026-11-09T21:54:03+08:00",
+  "defaultHomeLineId": "juzi_shvip",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
     "https://raw.githubusercontent.com/jiji262/tvbox-sources/main/sources.json",
@@ -10,6 +10,15 @@
   ],
   "lineDefaults": { "hiddenCategoryIds": [41,42,43,44], "defaultTypeId": 13 },
   "lines": [
+    {"id": "juzi_shvip", "name": "橘汁·VIP蓝光", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_newxfyun", "name": "橘汁·自建4K-3", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_tocyyds", "name": "橘汁·自建4K-4", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_KZNB", "name": "橘汁·自营蓝光-1", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_qq", "name": "橘汁·QQ", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_qiyi", "name": "橘汁·QY", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_youku", "name": "橘汁·YK", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_bilibili", "name": "橘汁·BL", "protocol": "juzi-native", "enabled": true, "searchable": true},
+    {"id": "juzi_mgtv", "name": "橘汁·M蓝光", "protocol": "juzi-native", "enabled": true, "searchable": true},
     {"id": "liangzi", "name": "量子", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://cj.lziapi.com/api.php/provide/vod/"]},
     {"id": "ruyi", "name": "如意", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://cj.rycjapi.com/api.php/provide/vod/"]},
     {"id": "360", "name": "360", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://360zyzz.com/api.php/provide/vod/", "https://360zy.com/api.php/provide/vod/"]},
@@ -44,7 +53,8 @@
     {"id": "yaya", "name": "鸭鸭", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://cj.yayazy.net/api.php/provide/vod/"]},
     {"id": "hongniu", "name": "红牛", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://www.hongniuzy2.com/api.php/provide/vod/"]},
     {"id": "suoni", "name": "索尼", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://suoniapi.com/api.php/provide/vod/"]},
-    {"id": "ffzy", "name": "非凡", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://api.ffzyapi.com/api.php/provide/vod/", "http://api.ffzyapi.com/api.php/provide/vod/"]}
+    {"id": "ffzy", "name": "非凡", "protocol": "maccms-json", "enabled": true, "baseUrls": ["https://api.ffzyapi.com/api.php/provide/vod/", "http://api.ffzyapi.com/api.php/provide/vod/"]},
+    {"id": "juzi_vod_1080", "name": "橘汁·NN蓝光（备用）", "protocol": "juzi-native", "enabled": true, "searchable": true}
   ],
   "contentFilter": { "blockedKeywords": ["伦理", "电影解说"] },
   "live": { "sourceUrls": ["http://20.205.10.127:8787/tvbox/result.txt", "https://tv.iill.top/m3u/Gather"] },

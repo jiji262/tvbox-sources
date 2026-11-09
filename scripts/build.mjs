@@ -11,6 +11,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { validateJuziLine } from "./juzi-lines.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = join(root, "sources.json");
@@ -20,7 +21,7 @@ const args = new Set(process.argv.slice(2));
 const SUPPORTED_SCHEMA_VERSION = 1;
 const MAX_BYTES = 512 * 1024;
 const MAX_LINES = 200;
-const KNOWN_PROTOCOLS = new Set(["maccms-json"]);
+const KNOWN_PROTOCOLS = new Set(["maccms-json", "juzi-native"]);
 const ID_PATTERN = /^[A-Za-z0-9_.-]{1,64}$/;
 
 const errors = [];
@@ -131,8 +132,13 @@ function validate(config) {
     if (!KNOWN_PROTOCOLS.has(protocol)) {
       warn(`${where}.protocol: ${protocol} 不是当前 APK 支持的协议，旧版 APK 会跳过该线路`);
     }
-    const baseUrls = checkUrlList(line.baseUrls, `${where}.baseUrls`, { allowQuery: false });
-    if (baseUrls.length === 0) fail(`${where}.baseUrls: 至少需要一个地址`);
+    if (protocol === "juzi-native") {
+      validateJuziLine(line, where, fail);
+    } else {
+      if (typeof line.id === "string" && line.id.startsWith("juzi_")) fail(`${where}.protocol: juzi_ 前缀仅允许 juzi-native`);
+      const baseUrls = checkUrlList(line.baseUrls, `${where}.baseUrls`, { allowQuery: false });
+      if (baseUrls.length === 0) fail(`${where}.baseUrls: 至少需要一个地址`);
+    }
     for (const key of ["enabled", "searchable"]) {
       if (line[key] !== undefined && typeof line[key] !== "boolean") fail(`${where}.${key}: 必须是 true 或 false`);
     }
@@ -191,7 +197,7 @@ function escapeHtml(value) {
 function renderIndex(config) {
   const enabled = config.lines.filter((line) => line.enabled !== false);
   const rows = config.lines
-    .map((line) => `<tr><td>${escapeHtml(line.id)}</td><td>${escapeHtml(line.name)}</td><td>${line.enabled === false ? "停用" : "启用"}</td><td>${line.baseUrls.length}</td></tr>`)
+    .map((line) => `<tr><td>${escapeHtml(line.id)}</td><td>${escapeHtml(line.name)}</td><td>${line.enabled === false ? "停用" : "启用"}</td><td>${line.protocol === "juzi-native" ? "APK 内置" : line.baseUrls.length}</td></tr>`)
     .join("\n");
   return `<!doctype html>
 <html lang="zh-CN">
