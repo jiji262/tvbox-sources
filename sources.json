@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026110902,
-  "updatedAt": "2026-11-09T21:54:03+08:00",
+  "configVersion": 2026111101,
+  "updatedAt": "2026-11-11T21:48:57+08:00",
   "defaultHomeLineId": "juzi_shvip",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -57,6 +57,6 @@
     {"id": "juzi_vod_1080", "name": "橘汁·NN蓝光（备用）", "protocol": "juzi-native", "enabled": true, "searchable": true}
   ],
   "contentFilter": { "blockedKeywords": ["伦理", "电影解说"] },
-  "live": { "sourceUrls": ["http://20.205.10.127:8787/tvbox/result.txt", "https://tv.iill.top/m3u/Gather"] },
+  "live": { "sourceUrls": ["https://raw.githubusercontent.com/bjzhou/iptv-collector/output/iptv-cm.m3u", "http://20.205.10.127:8787/tvbox/result.txt"] },
   "platformLive": { "serviceUrl": "http://20.205.10.127:8868" }
 }
