@@ -8,7 +8,7 @@ import test from "node:test";
 
 const scripts = dirname(fileURLToPath(import.meta.url));
 const publicLine = { id: "public", name: "公共源", baseUrls: ["https://public.test/"] };
-const nativeLine = { id: "juzi_shvip", name: "橘汁·VIP蓝光", protocol: "juzi-native" };
+const nativeLine = { id: "juzi_shvip", name: "VIP蓝光", protocol: "juzi-native" };
 
 function checkConfig(line, defaultHomeLineId = "public") {
   const root = mkdtempSync(join(tmpdir(), "tvbox-config-check-"));
@@ -26,30 +26,30 @@ function checkConfig(line, defaultHomeLineId = "public") {
   }
 }
 
-test("已内置橘汁渠道无需公开解析地址，也可作为默认源", () => {
+test("已内置原生渠道无需公开解析地址，也可作为默认源", () => {
   const result = checkConfig(nativeLine, nativeLine.id);
   assert.equal(result.status, 0, result.stderr);
 });
 
-test("未知橘汁渠道不能伪装为已内置解析器", () => {
+test("未知原生渠道不能伪装为已内置解析器", () => {
   const result = checkConfig({ ...nativeLine, id: "juzi_unknown", baseUrls: ["https://unknown.test/"] });
   assert.equal(result.status, 1);
   assert.match(result.stderr, /未内置/);
 });
 
-test("橘汁渠道不能携带远程解析地址", () => {
+test("原生渠道不能携带远程解析地址", () => {
   const result = checkConfig({ ...nativeLine, baseUrls: ["https://untrusted.test/"] });
   assert.equal(result.status, 1);
   assert.match(result.stderr, /baseUrls/);
 });
 
-test("橘汁保留ID不能被MacCms地址覆盖", () => {
+test("原生渠道保留ID不能被MacCms地址覆盖", () => {
   const result = checkConfig({ ...publicLine, id: nativeLine.id });
   assert.equal(result.status, 1);
   assert.match(result.stderr, /juzi-native/);
 });
 
-test("协议密钥不能进入公开的橘汁元数据", () => {
+test("协议密钥不能进入公开的原生渠道元数据", () => {
   const result = checkConfig({ ...nativeLine, sharedKey: "test-not-a-secret" });
   assert.equal(result.status, 1);
   assert.match(result.stderr, /sharedKey/);

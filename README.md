@@ -41,7 +41,7 @@ Vercel 构建时会运行同一套校验。校验失败时构建失败，线上�
     {
       "id": "liangzi",                // 唯一且永久不变；观看历史按 id 关联线路
       "name": "量子",                 // 电视上显示的名称
-      "protocol": "maccms-json",      // MacCMS JSON；橘汁原生渠道使用 juzi-native
+      "protocol": "maccms-json",      // MacCMS JSON；原生渠道使用 juzi-native
       "enabled": true,                // false：从线路列表和搜索中隐藏，已有观看历史仍可续播
       "searchable": true,             // 可选，false：不参与多来源搜索和详情补源
       "hiddenCategoryIds": [41],      // 可选，覆盖 lineDefaults
@@ -64,17 +64,17 @@ Vercel 构建时会运行同一套校验。校验失败时构建失败，线上�
 - `custom_` 前缀保留给用户在电视上扫码添加的自定义接口。
 - `baseUrls` 必须以 http/https 开头，不能带 `?` 或 `#`；缺少结尾 `/` 时 APK 会自动补上。
 
-### 橘汁原生渠道
+### 原生渠道
 
 `juzi-native` 与 MacCms 条目放在同一个 `lines` 数组中，支持名称、`enabled`、`searchable`、显示顺序和 `defaultHomeLineId`；已保存的用户首页选择继续保留。首次使用需安装支持此协议的新 APK，之后调整已内置渠道无需重新打包。旧 APK 跳过新协议条目，继续使用其已有内置配置。
 
 ```json
-{"id":"juzi_shvip","name":"橘汁·VIP蓝光","protocol":"juzi-native","enabled":true,"searchable":true}
+{"id":"juzi_shvip","name":"VIP蓝光","protocol":"juzi-native","enabled":true,"searchable":true}
 ```
 
 渠道 ID 必须对应 APK 已内置的 10 条线路：`juzi_shvip`、`juzi_newxfyun`、`juzi_tocyyds`、`juzi_KZNB`、`juzi_qq`、`juzi_qiyi`、`juzi_youku`、`juzi_bilibili`、`juzi_mgtv`、`juzi_vod_1080`。解析地址和协议密钥保留在 APK，不能填写 `baseUrls` 或密钥字段。新增未知渠道需要先更新 APK。
 
-橘汁不继承 MacCms 的默认分类 ID；可在条目中单独设置 `defaultTypeId`（0 表示全部）和 `hiddenCategoryIds`。未列出的内置渠道仍保留，停用请显式设置 `enabled: false`；NN 备用角色由 APK 固定，始终放在普通和自定义线路之后。旧 JSON 无橘汁条目时仍使用内置橘汁顺序和默认源，远程失败时保留最近有效缓存或 APK 内置值。
+原生渠道不继承 MacCms 的默认分类 ID；可在条目中单独设置 `defaultTypeId`（0 表示全部）和 `hiddenCategoryIds`。未列出的内置渠道仍保留，停用请显式设置 `enabled: false`；NN 备用角色由 APK 固定，始终放在普通和自定义线路之后。旧 JSON 无原生渠道条目时仍使用内置原生渠道顺序和默认源，远程失败时保留最近有效缓存或 APK 内置值。
 
 ## APK 端行为
 
