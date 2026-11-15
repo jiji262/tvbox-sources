@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111504,
-  "updatedAt": "2026-11-15T13:58:00.789Z",
-  "defaultHomeLineId": "juzi_shvip",
+  "configVersion": 2026111505,
+  "updatedAt": "2026-11-15T14:02:46.854Z",
+  "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
     "https://raw.githubusercontent.com/jiji262/tvbox-sources/main/generated/sources.json",
@@ -31,7 +31,7 @@
       "id": "juzi_shvip",
       "name": "JZ·VIP蓝光",
       "protocol": "juzi-native",
-      "enabled": true,
+      "enabled": false,
       "searchable": true
     },
     {
@@ -238,7 +238,7 @@
       "id": "ikun",
       "name": "iKun",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://ikunzyapi.com/api.php/provide/vod/"
       ]
