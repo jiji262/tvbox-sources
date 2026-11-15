@@ -11,7 +11,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { validateJuziLine } from "./juzi-lines.mjs";
+import { validateJuziDiscovery, validateJuziLine } from "./juzi-lines.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = join(root, "sources.json");
@@ -163,6 +163,7 @@ function validate(config) {
   if (config.platformLive !== undefined && config.platformLive.serviceUrl !== undefined && config.platformLive.serviceUrl !== "") {
     checkUrl(config.platformLive.serviceUrl, "platformLive.serviceUrl");
   }
+  if (config.juzi !== undefined) validateJuziDiscovery(config.juzi, fail);
 }
 
 function previousCommittedConfig() {
@@ -197,7 +198,7 @@ function escapeHtml(value) {
 function renderIndex(config) {
   const enabled = config.lines.filter((line) => line.enabled !== false);
   const rows = config.lines
-    .map((line) => `<tr><td>${escapeHtml(line.id)}</td><td>${escapeHtml(line.name)}</td><td>${line.enabled === false ? "停用" : "启用"}</td><td>${line.protocol === "juzi-native" ? "APK 内置" : line.baseUrls.length}</td></tr>`)
+    .map((line) => `<tr><td>${escapeHtml(line.id)}</td><td>${escapeHtml(line.name)}</td><td>${line.enabled === false ? "停用" : "启用"}</td><td>${line.protocol === "juzi-native" ? "JZ 原生协议" : line.baseUrls.length}</td></tr>`)
     .join("\n");
   return `<!doctype html>
 <html lang="zh-CN">

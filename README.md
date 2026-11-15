@@ -66,13 +66,25 @@ Vercel 构建时会运行同一套校验。校验失败时构建失败，线上�
 
 ### JZ 原生渠道
 
-`juzi-native` 与 MacCms 条目放在同一个 `lines` 数组中，支持名称、`enabled`、`searchable`、显示顺序和 `defaultHomeLineId`；已保存的用户首页选择继续保留。首次使用需安装支持此协议的新 APK，之后调整已内置渠道无需重新打包。旧 APK 跳过新协议条目，继续使用其已有内置配置。
+`juzi-native` 与 MacCms 条目放在同一个 `lines` 数组中。首次安装支持远端 JZ 渠道的新 APK 后，可直接在这里新增同协议渠道、改名、停用、排序和设置 `defaultHomeLineId`，无需重新打包；电视端不增加配置项，已保存的首页选择继续保留。旧 APK 会跳过不认识的渠道和字段。
 
 ```json
-{"id":"juzi_shvip","name":"JZ·VIP蓝光","protocol":"juzi-native","enabled":true,"searchable":true}
+{"id":"juzi_shvip","name":"JZ·VIP蓝光","protocol":"juzi-native"}
 ```
 
-渠道 ID 必须对应 APK 已内置的 10 条线路：`juzi_shvip`、`juzi_newxfyun`、`juzi_tocyyds`、`juzi_KZNB`、`juzi_qq`、`juzi_qiyi`、`juzi_youku`、`juzi_bilibili`、`juzi_mgtv`、`juzi_vod_1080`。解析地址和协议密钥保留在 APK，不能填写 `baseUrls` 或密钥字段。新增未知渠道需要先更新 APK。
+渠道 ID 使用 `juzi_` 加上游真实渠道标识，如 `shvip` 对应 `juzi_shvip`；标识首字符为字母、数字或下划线，完整 ID 最多 64 字符。上游必须已支持该渠道并继续使用相同的 JZ 协议；配置校验通过不代表上游一定可播放。条目不能填写 `baseUrls` 或密钥字段，`enabled`、`searchable` 省略时均为 `true`。
+
+所有 JZ 渠道共用根节点 `juzi.bootstrapUrls`，发现入口只需配置一次（下面为 `sources.json` 中的节点片段）：
+
+```json
+"juzi": {
+  "bootstrapUrls": ["https://example.com/jz-discovery.json"]
+}
+```
+
+发现入口返回 `{"enabled":true,"domain":"https://api.example.com"}`。`bootstrapUrls` 最多 10 个，只允许不含凭据和片段的 HTTPS 地址；远端入口优先，发现或握手失败后自动尝试 APK 内置入口。省略 `juzi`、省略该数组或设置为空数组均使用内置入口。更新入口后，新请求会重新握手，已经开始的请求继续完成。
+
+协议密钥、签名、加解密和解析器仍留在 APK，不能放进此公开配置；协议本身变化时仍需更新 APK。
 
 JZ 不继承 MacCms 的默认分类 ID；可在条目中单独设置 `defaultTypeId`（0 表示全部）和 `hiddenCategoryIds`。未列出的内置渠道仍保留，停用请显式设置 `enabled: false`；NN 备用角色由 APK 固定，始终放在普通和自定义线路之后。旧 JSON 无 JZ 条目时仍使用内置 JZ 顺序和默认源，远程失败时保留最近有效缓存或 APK 内置值。
 

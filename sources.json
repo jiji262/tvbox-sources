@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111301,
-  "updatedAt": "2026-11-13T21:56:48+08:00",
+  "configVersion": 2026111501,
+  "updatedAt": "2026-11-15T19:48:49+08:00",
   "defaultHomeLineId": "juzi_shvip",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -9,6 +9,15 @@
     "https://cdn.jsdelivr.net/gh/jiji262/tvbox-sources@main/sources.json"
   ],
   "lineDefaults": { "hiddenCategoryIds": [41,42,43,44], "defaultTypeId": 13 },
+  "juzi": {
+    "bootstrapUrls": [
+      "https://tv-1349250429.cos.ap-guangzhou.myqcloud.com/tv1.txt",
+      "https://tv2-1349250429.cos.ap-chengdu.myqcloud.com/tv2.txt",
+      "https://tv3-1349250429.cos.ap-shanghai.myqcloud.com/tv3.txt",
+      "https://vip.123pan.cn/1848463092/cct/tv4.txt",
+      "https://vip.123pan.cn/1848463092/cct/tv5.txt"
+    ]
+  },
   "lines": [
     {"id": "juzi_shvip", "name": "JZ·VIP蓝光", "protocol": "juzi-native", "enabled": true, "searchable": true},
     {"id": "juzi_newxfyun", "name": "JZ·自建4K-3", "protocol": "juzi-native", "enabled": true, "searchable": true},
