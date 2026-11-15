@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "enabled": false,
+  "policyRevision": 1,
+  "packageName": "com.dangdang.tv.legacy",
+  "minSdk": 22,
+  "minSupportedVersionCode": 0,
+  "force": false,
+  "forceMessage": ""
+}

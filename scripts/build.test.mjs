@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { copyFileSync, mkdirSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, cpSync, mkdirSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,6 +14,7 @@ function checkConfig(line, defaultHomeLineId = "public", extra = {}) {
   const root = mkdtempSync(join(tmpdir(), "tvbox-config-check-"));
   try {
     mkdirSync(join(root, "scripts"));
+    cpSync(join(scripts, "../updates"), join(root, "updates"), { recursive: true });
     for (const name of readdirSync(scripts).filter((name) => name.endsWith(".mjs"))) {
       copyFileSync(join(scripts, name), join(root, "scripts", name));
     }

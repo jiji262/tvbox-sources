@@ -6,6 +6,15 @@
   "outputDirectory": "dist",
   "headers": [
     {
+      "source": "/updates/:path*",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "CDN-Cache-Control", "value": "no-store" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
       "source": "/sources.json",
       "headers": [
         { "key": "Content-Type", "value": "application/json; charset=utf-8" },

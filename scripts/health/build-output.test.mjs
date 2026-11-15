@@ -14,6 +14,8 @@ test("部署只读取生成结果，原始 sources.json 保持不变", () => {
   const root = mkdtempSync(join(tmpdir(), "source-health-build-"));
   try {
     cpSync(join(repo, "scripts"), join(root, "scripts"), { recursive: true });
+    cpSync(join(repo, "updates"), join(root, "updates"), { recursive: true });
+    assert.equal(spawnSync("git", ["init", "-q", root]).status, 0);
     const raw = JSON.stringify(config(100, "原始基准"));
     writeFileSync(join(root, "sources.json"), raw);
     mkdirSync(join(root, "generated"));
@@ -29,6 +31,8 @@ test("首次没有生成产物时阻止部署，不能静默发布未经检查�
   const root = mkdtempSync(join(tmpdir(), "source-health-build-"));
   try {
     cpSync(join(repo, "scripts"), join(root, "scripts"), { recursive: true });
+    cpSync(join(repo, "updates"), join(root, "updates"), { recursive: true });
+    assert.equal(spawnSync("git", ["init", "-q", root]).status, 0);
     writeFileSync(join(root, "sources.json"), JSON.stringify(config(100, "基准")));
     const result = spawnSync(process.execPath, ["scripts/build.mjs"], { cwd: root, encoding: "utf8" });
     assert.notEqual(result.status, 0);

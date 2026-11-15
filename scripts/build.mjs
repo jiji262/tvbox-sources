@@ -12,6 +12,7 @@ import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateJuziDiscovery, validateJuziLine } from "./juzi-lines.mjs";
+import { readUpdates, writeUpdates } from "./updates.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = join(root, "dist");
@@ -245,6 +246,8 @@ if (config !== null) {
   if (args.has("--check-bump") && errors.length === 0) checkVersionBump(config);
 }
 
+const updates = readUpdates(root, { checkBump: args.has("--check-bump") || !args.has("--check") });
+errors.push(...updates.errors);
 warnings.forEach((message) => console.warn(`warning: ${message}`));
 if (errors.length > 0) {
   errors.forEach((message) => console.error(`error: ${message}`));
@@ -264,5 +267,6 @@ if (!args.has("--check") && !args.has("--check-bump")) {
   const healthPath = join(root, "generated/health.json");
   if (existsSync(healthPath)) writeFileSync(join(distDir, "health.json"), readFileSync(healthPath));
   writeFileSync(join(distDir, "index.html"), renderIndex(config));
+  writeUpdates(distDir, updates.manifests);
   console.log(`built ${join("dist", "sources.json")} and ${join("dist", "index.html")}`);
 }

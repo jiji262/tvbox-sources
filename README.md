@@ -30,6 +30,36 @@ JZ 协议配置通过仓库 Secret `JZ_PROTOCOL_CONFIG` 提供，只供可信 ma
 
 撤销错误的基准修改后重新运行检测，由任务生成高于当前产物的版本；不要直接把旧生成文件部署上线。APK 只接受版本号不低于本机已缓存配置的远程配置，用来避免 CDN 旧缓存把电视上的配置“倒退”回去。
 
+## 应用发布与强制更新
+
+应用更新独立于影视源配置，Modern 使用 `https://tv.navs.dpdns.org/updates/modern.json`，Legacy 使用 `https://tv.navs.dpdns.org/updates/legacy.json`。两份清单初始均为 `enabled: false`，不会下发虚假安装包或触发强更。首次必须先分发支持该策略的新 APK；旧版仅修改远端配置不会获得强更能力。
+
+1. 构建并签名对应渠道的 APK，保持既有安装包的签名，上传至电视可以访问的 HTTPS 下载地址。
+2. 使用下面的命令生成清单。需要 Node.js 18+、JDK 17 和 Android SDK Build Tools；可通过 `--sdk /path/to/sdk` 指定 SDK。
+3. 运行 `node --test scripts/*.test.mjs` 和 `node scripts/build.mjs --check-bump`，再按既有流程提交部署。生成清单前会下载远端 APK，比对大小和 SHA-256；地址不可用、HTTPS 降级或内容不匹配时拒绝写入。
+
+```bash
+# 普通发布：保留已有最低版本，允许仍受支持的版本继续使用。
+node scripts/publish-update.mjs --flavor modern \
+  --apk /path/to/modern.apk --apk-url https://你的下载域名/modern.apk --optional
+
+# 所有旧版本必须更新至本次发布版本。
+node scripts/publish-update.mjs --flavor modern \
+  --apk /path/to/modern.apk --apk-url https://你的下载域名/modern.apk \
+  --force --message '当前版本已不兼容，请更新后继续使用'
+
+# 仅淘汰指定版本以下的客户端；设为 0 可撤销强更。
+node scripts/publish-update.mjs --flavor legacy \
+  --apk /path/to/legacy.apk --apk-url https://你的下载域名/legacy.apk \
+  --min-supported-version-code 10314 --message '请升级到受支持的版本'
+```
+
+添加 `--dry-run` 只预览本地 APK 信息、不检查远端也不改清单；`--changelog '更新说明'` 可重复传入。脚本从真实 APK 提取版本、包名、最低系统、签名证书、大小及 SHA-256，自动递增 `policyRevision`，不会上传 APK、提交或部署。两个渠道分别执行，不能交叉使用安装包。
+
+客户端按 `minSupportedVersionCode` 判强更，`force` 用于兼容旧清单；清单缺少最低版本字段且 `force: true` 时要求升级到清单中的发布版本。普通更新仍在设置内提示，强更检查不受启动检查开关影响。首次无有效策略且断网时放行；已有有效强更缓存时继续拦截。
+
+撤销强更时可保留同一 APK，使用 `--min-supported-version-code 0` 重新生成清单；也可将 `enabled` 改为 `false`，同时将最低版本设为 `0`、`force` 设为 `false` 并递增 `policyRevision`。停用时须保留已发布 APK 的元数据，后续仍检查版本和签名兼容。不要回退修订号；客户端会拒绝旧缓存恢复已撤销的限制。改应用更新清单无需修改 `sources.json` 的 `configVersion`。生成部署产物时始终校验策略历史；浅克隆至少需获取两个提交，避免校验不全时上线。
+
 ## 字段说明
 
 ```jsonc
