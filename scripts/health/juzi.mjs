@@ -15,18 +15,22 @@ export function createJuziProbe(config, discovery, options = {}) {
   let samples;
   let session;
   async function prepare() {
-    for (const url of urls) {
+    for (const [index, url] of urls.entries()) {
+      let stage = "discovery";
       try {
         if (safeUrl(url).protocol !== "https:") continue;
         const data = JSON.parse((await read(url)).bytes.toString());
         if (data.enabled !== true) continue;
         const domain = safeUrl(data.domain);
         domain.protocol = "https:"; domain.pathname = "/"; domain.search = ""; domain.hash = "";
+        stage = "handshake";
         const response = await read(new URL("/api/v5/find/app/zone", domain).toString(),
           { body: security.bootstrap(), headers: security.headers() });
         session = { domain, key: security.secondary(unwrap(response.bytes)) };
         return;
-      } catch { /* 不输出启动响应、协议配置或签名。 */ }
+      } catch (error) {
+        console.warn(JSON.stringify({ stage, bootstrapIndex: index, code: discoveryFailureCode(error) }));
+      }
     }
     throw new ProbeError("bootstrap", "jz_bootstrap_failed");
   }
@@ -46,6 +50,12 @@ export function createJuziProbe(config, discovery, options = {}) {
   const getSamples = () => samples ??= sampleMovies(catalog);
   return { prepare, warmup: getSamples, probe: (line, probeOptions = {}) =>
     probeChannel(line, { catalog, load, read, getSamples, ...probeOptions }) };
+}
+
+function discoveryFailureCode(error) {
+  if (error instanceof ProbeError) return error.code;
+  if (/^[A-Z_0-9]{1,64}$/.test(error.cause?.code)) return error.cause.code;
+  return error instanceof SyntaxError ? "invalid_response_format" : "network_or_protocol_error";
 }
 
 function unwrap(data) {

@@ -73,6 +73,24 @@ test("已超时的JZ渠道立即停止，不再继续查询样本或解析", asy
     (error) => error.name === "AbortError");
 });
 
+test("启动入口失败记录安全阶段和错误码，不输出协议或响应内容", async (context) => {
+  const { publicKey } = generateKeyPairSync("rsa", { modulusLength: 1024 });
+  const config = { primaryPublicKey: publicKey.export({ type: "spki", format: "der" }).toString("base64"),
+    sharedKey: "s".repeat(32), bodyKey: "b".repeat(32), fakePosition: 2,
+    packageName: "test.package", versionCode: "3023", versionName: "3.0.2.3" };
+  const diagnostics = [];
+  context.mock.method(console, "warn", (line) => diagnostics.push(JSON.parse(line)));
+  const client = createJuziProbe(config, { bootstrapUrls: ["https://remote.test/config"] }, {
+    request: async (url) => {
+      if (url.endsWith("/config")) return { bytes: Buffer.from('{"enabled":true,"domain":"https://native.test"}') };
+      throw new Error("sensitive response or signed URL", { cause: { code: "ETIMEDOUT" } });
+    },
+  });
+  await assert.rejects(() => client.prepare(), (error) => error.code === "jz_bootstrap_failed");
+  assert.deepEqual(diagnostics, [{ stage: "handshake", bootstrapIndex: 0, code: "ETIMEDOUT" }]);
+  assert.ok(!JSON.stringify(diagnostics).includes("sensitive"));
+});
+
 function decryptedQuery(value, secret) {
   const body = decode(value);
   const joined = text(body, 1) + text(body, 2);
