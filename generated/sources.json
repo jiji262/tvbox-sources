@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111506,
-  "updatedAt": "2026-11-15T14:27:17.499Z",
+  "configVersion": 2026111507,
+  "updatedAt": "2026-11-15T14:52:05.369Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -66,7 +66,7 @@
       "id": "juzi_qiyi",
       "name": "JZ·QY",
       "protocol": "juzi-native",
-      "enabled": true,
+      "enabled": false,
       "searchable": true
     },
     {
@@ -256,9 +256,9 @@
       "id": "xinlangaa",
       "name": "新浪",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
-        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/"
       ]
     },
     {
