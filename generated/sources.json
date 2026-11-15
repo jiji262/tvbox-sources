@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111505,
-  "updatedAt": "2026-11-15T14:02:46.854Z",
+  "configVersion": 2026111506,
+  "updatedAt": "2026-11-15T14:27:17.499Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -346,7 +346,7 @@
       "id": "jinyingzy",
       "name": "金鹰点播",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://jinyingzy.com/api.php/provide/vod/"
       ]
