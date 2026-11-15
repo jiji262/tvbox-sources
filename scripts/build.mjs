@@ -8,15 +8,16 @@
 //   node scripts/build.mjs --check-bump  also require configVersion to grow when sources.json changes (needs git history)
 
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateJuziDiscovery, validateJuziLine } from "./juzi-lines.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const sourcePath = join(root, "sources.json");
 const distDir = join(root, "dist");
 const args = new Set(process.argv.slice(2));
+const checking = args.has("--check") || args.has("--check-bump");
+const sourcePath = join(root, checking ? "sources.json" : "generated/sources.json");
 
 const SUPPORTED_SCHEMA_VERSION = 1;
 const MAX_BYTES = 512 * 1024;
@@ -258,6 +259,10 @@ if (!args.has("--check") && !args.has("--check-bump")) {
   rmSync(distDir, { recursive: true, force: true });
   mkdirSync(distDir, { recursive: true });
   writeFileSync(join(distDir, "sources.json"), raw);
+  mkdirSync(join(distDir, "generated"), { recursive: true });
+  writeFileSync(join(distDir, "generated/sources.json"), raw);
+  const healthPath = join(root, "generated/health.json");
+  if (existsSync(healthPath)) writeFileSync(join(distDir, "health.json"), readFileSync(healthPath));
   writeFileSync(join(distDir, "index.html"), renderIndex(config));
   console.log(`built ${join("dist", "sources.json")} and ${join("dist", "index.html")}`);
 }

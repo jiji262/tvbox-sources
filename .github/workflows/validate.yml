@@ -15,4 +15,5 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/build.mjs --check-bump
+      - run: node --test scripts/build.test.mjs scripts/health/*.test.mjs
       - run: node scripts/build.mjs

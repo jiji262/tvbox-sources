@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-15T13:58:00.789Z",
+  "configVersion": 2026111504,
+  "baselineSha256": "e9bc45403ee9b2e70abd4678dbb90aa11ebb842f278a609bd3efae0628a2f6aa",
+  "node": "local",
+  "available": 19,
+  "total": 45,
+  "results": [
+    {
+      "id": "juzi_shvip",
+      "name": "JZ·VIP蓝光",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 2696,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_newxfyun",
+      "name": "JZ·自建4K-3",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 3434,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_tocyyds",
+      "name": "JZ·自建4K-4",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 1578,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_KZNB",
+      "name": "JZ·自营蓝光-1",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 684,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_qq",
+      "name": "JZ·QQ",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 953,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_qiyi",
+      "name": "JZ·QY",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 6618,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_youku",
+      "name": "JZ·YK",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 1252,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_bilibili",
+      "name": "JZ·BL",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 3263,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "juzi_mgtv",
+      "name": "JZ·M蓝光",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 1609,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "liangzi",
+      "name": "量子",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_404",
+      "elapsedMs": 7204,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "ruyi",
+      "name": "如意",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 11118,
+      "healthyUrls": [
+        "https://cj.rycjapi.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "360",
+      "name": "360",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 9670,
+      "healthyUrls": [
+        "https://360zyzz.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "dyttzy",
+      "name": "电影天堂",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 8881,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "bfzy",
+      "name": "暴风",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 6820,
+      "healthyUrls": [
+        "https://bfzyapi.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "tyyszy",
+      "name": "天涯",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 2037,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "maotaizy",
+      "name": "茅台",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "search",
+      "code": "empty_result",
+      "elapsedMs": 3825,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "wolong",
+      "name": "卧龙",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 1803,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "jisu",
+      "name": "极速",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "media",
+      "code": "invalid_video_data",
+      "elapsedMs": 5544,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "dbzy",
+      "name": "豆瓣",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 18,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "mozhua",
+      "name": "魔爪",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 241,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "mdzy",
+      "name": "魔都",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 5385,
+      "healthyUrls": [
+        "https://www.mdzyapi.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "zuid",
+      "name": "最大",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 14552,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "yinghua",
+      "name": "樱花",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 2071,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "wujin",
+      "name": "无尽",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 7543,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "wwzy",
+      "name": "旺旺短剧",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 230,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "ikun",
+      "name": "iKun",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 15,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "bdzy",
+      "name": "百度",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 10422,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "xinlangaa",
+      "name": "新浪",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "media",
+      "code": "invalid_video_data",
+      "elapsedMs": 6055,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "ckzy",
+      "name": "CK",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 4202,
+      "healthyUrls": [
+        "https://ckzy.me/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "ukuapi",
+      "name": "U酷",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 10329,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "1080zyk",
+      "name": "1080",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 12825,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "hhzyapi",
+      "name": "豪华",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "media",
+      "code": "invalid_video_data",
+      "elapsedMs": 5371,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "subocaiji",
+      "name": "速博",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 9608,
+      "healthyUrls": [
+        "https://subocaiji.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "p2100",
+      "name": "飘零",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 465,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "aqyzy",
+      "name": "爱奇艺",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 4435,
+      "healthyUrls": [
+        "https://iqiyizyapi.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "yzzy",
+      "name": "优质",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 234,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "myzy",
+      "name": "猫眼",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 4073,
+      "healthyUrls": [
+        "https://api.maoyanapi.top/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "jinyingzy",
+      "name": "金鹰点播",
+      "protocol": "maccms-json",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 4399,
+      "healthyUrls": [
+        "https://jinyingzy.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    },
+    {
+      "id": "guangsuapi",
+      "name": "光速",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "media",
+      "code": "invalid_video_data",
+      "elapsedMs": 5477,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "niuniu",
+      "name": "牛牛",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 2000,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "yaya",
+      "name": "鸭鸭",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 1812,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "media",
+      "code": "invalid_video_data",
+      "elapsedMs": 3967,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "suoni",
+      "name": "索尼",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 1494,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "ffzy",
+      "name": "非凡",
+      "protocol": "maccms-json",
+      "status": "unavailable",
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 17293,
+      "lastSuccessAt": null
+    },
+    {
+      "id": "juzi_vod_1080",
+      "name": "JZ·NN蓝光（备用）",
+      "protocol": "juzi-native",
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 2921,
+      "lastSuccessAt": "2026-11-15T13:58:00.789Z"
+    }
+  ]
+}

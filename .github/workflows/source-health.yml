@@ -1,0 +1,55 @@
+name: source-health
+
+on:
+  schedule:
+    # 每天 UTC 01:17 轻量判断，按连续 UTC 日期隔天执行检测，跨月也相隔48小时。
+    - cron: "17 1 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - sources.json
+      - scripts/health/**
+      - .github/workflows/source-health.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: source-health-main
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: due
+        run: node scripts/health/run.mjs --due >> "$GITHUB_OUTPUT"
+      - name: Run unit tests
+        if: steps.due.outputs.run == 'true'
+        run: node --test scripts/build.test.mjs scripts/health/*.test.mjs
+      - name: Check every baseline source
+        if: steps.due.outputs.run == 'true'
+        env:
+          JZ_PROTOCOL_CONFIG: ${{ secrets.JZ_PROTOCOL_CONFIG }}
+        run: node scripts/health/run.mjs
+      - name: Validate generated deployment
+        if: steps.due.outputs.run == 'true'
+        run: node scripts/build.mjs
+      - name: Publish checked snapshot
+        if: steps.due.outputs.run == 'true'
+        run: |
+          git config user.name "jiji262"
+          git config user.email "jiguofei@msn.com"
+          git add generated/sources.json generated/health.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore(sources): 更新定时检测后的可用配置"
+          git push origin HEAD:main

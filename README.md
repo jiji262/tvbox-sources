@@ -5,24 +5,30 @@
 | 地址 | 用途 |
 | --- | --- |
 | https://tv.navs.dpdns.org/sources.json | 主地址（Vercel 部署，Cloudflare DNS） |
-| https://raw.githubusercontent.com/jiji262/tvbox-sources/main/sources.json | 备用地址 |
-| https://cdn.jsdelivr.net/gh/jiji262/tvbox-sources@main/sources.json | 最后备用（CDN 有缓存，更新可能延迟数小时） |
+| https://raw.githubusercontent.com/jiji262/tvbox-sources/main/generated/sources.json | 备用地址 |
+| https://cdn.jsdelivr.net/gh/jiji262/tvbox-sources@main/generated/sources.json | 最后备用（CDN 有缓存，更新可能延迟数小时） |
 
 > 请确保配置中的影视与直播接口具备合法授权。本仓库只保存接口地址，不托管任何影视内容。
 
 ## 更新流程
 
-1. 修改 `sources.json`。
-2. **把 `configVersion` 调大**，建议格式 `YYYYMMDDNN`（例如 `2026110902` 表示当天第 2 次修改），同时更新 `updatedAt`。
-3. 本地校验：`node scripts/build.mjs --check-bump`（需要 Node.js 18+，无第三方依赖）。
-4. 提交并推送到 `main`，Vercel 会自动构建部署，通常一分钟内生效。
+1. 只人工维护根目录 `sources.json`，它始终保留为完整基准，定时检测不会覆盖。
+2. 修改基准时把 `configVersion` 调大并更新 `updatedAt`。生成版本自动取基准与上次产物版本的最大值再加一。
+3. 本地校验：`node scripts/build.mjs --check-bump`；测试：`node --test scripts/build.test.mjs scripts/health/*.test.mjs`（Node.js 22+，无第三方依赖）。
+4. 提交并推送到 `main`，GitHub Actions 检测基准并提交 `generated/sources.json` 和 `generated/health.json`；Vercel 仅部署生成配置，检测完成后的部署通常需要约一分钟。
 5. 电视端在下次启动、回到前台（距上次检查超过 6 小时，上次检查失败时为 15 分钟）或在“设置 → 视频接口 → 影视源配置 → 检查更新”时获取新配置。
 
-Vercel 构建时会运行同一套校验。校验失败时构建失败，线上继续使用上一份配置，不会把坏配置推给电视。
+GitHub Actions 每隔一天在北京时间 09:17 左右执行检测，按连续 UTC 日期判断，跨月仍相隔 48 小时；GitHub 调度可能延迟。修改基准或检测脚本会立即检测，也可在 Actions → `source-health` → Run workflow 手动执行。
+
+MacCMS 检查目录、搜索、详情和实际媒体数据；JZ 共用发现与握手后，逐渠道解析并检查媒体。只读取少量媒体数据，不下载完整视频。每条源最多 30 秒，最多三条源并行，整个任务上限 10 分钟。检测节点是 GitHub 网络，可用不等于家庭电视网络一定可播放。
+
+失败条目保留 ID 并设为 `enabled: false`（包括 JZ，不能删除后让 APK 补回内置渠道）；恢复后可在下一轮自动启用，人工停用的条目保持停用。整轮异常、结果不完整或全部失败时不发布，保留上一份有效产物。状态可查看 https://tv.navs.dpdns.org/health.json 或 Actions 运行摘要。
+
+JZ 协议配置通过仓库 Secret `JZ_PROTOCOL_CONFIG` 提供，只供可信 main 分支检测使用，不能写进公开 JSON 或日志。公开仓库使用免费的标准 Ubuntu runner，不使用付费 runner、缓存或制品上传；Vercel 仅静态部署，不增加 Cron 或 Functions。Vercel 构建也会校验生成配置，失败时线上继续使用上一份配置。
 
 ### 回滚
 
-使用 `git revert` 撤销错误提交后，**仍然要把 `configVersion` 调到比当前线上更大的值**。APK 只接受版本号不低于本机已缓存配置的远程配置，用来避免 CDN 旧缓存把电视上的配置“倒退”回去。
+撤销错误的基准修改后重新运行检测，由任务生成高于当前产物的版本；不要直接把旧生成文件部署上线。APK 只接受版本号不低于本机已缓存配置的远程配置，用来避免 CDN 旧缓存把电视上的配置“倒退”回去。
 
 ## 字段说明
 
@@ -110,3 +116,5 @@ JZ 不继承 MacCms 的默认分类 ID；可在条目中单独设置 `defaultTyp
 node scripts/build.mjs
 npx serve dist   # 或任意静态文件服务器
 ```
+
+构建读取已提交的 `generated/sources.json`。需要本地重新检测时，将 JZ 配置通过环境变量 `JZ_PROTOCOL_CONFIG` 注入，再执行 `node scripts/health/run.mjs`，不要把密钥写入仓库。

@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 2026111504,
+  "updatedAt": "2026-11-15T13:58:00.789Z",
+  "defaultHomeLineId": "juzi_shvip",
+  "configUrls": [
+    "https://tv.navs.dpdns.org/sources.json",
+    "https://raw.githubusercontent.com/jiji262/tvbox-sources/main/generated/sources.json",
+    "https://cdn.jsdelivr.net/gh/jiji262/tvbox-sources@main/generated/sources.json"
+  ],
+  "lineDefaults": {
+    "hiddenCategoryIds": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "defaultTypeId": 13
+  },
+  "juzi": {
+    "bootstrapUrls": [
+      "https://tv-1349250429.cos.ap-guangzhou.myqcloud.com/tv1.txt",
+      "https://tv2-1349250429.cos.ap-chengdu.myqcloud.com/tv2.txt",
+      "https://tv3-1349250429.cos.ap-shanghai.myqcloud.com/tv3.txt",
+      "https://vip.123pan.cn/1848463092/cct/tv4.txt",
+      "https://vip.123pan.cn/1848463092/cct/tv5.txt"
+    ]
+  },
+  "lines": [
+    {
+      "id": "juzi_shvip",
+      "name": "JZ·VIP蓝光",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_newxfyun",
+      "name": "JZ·自建4K-3",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_tocyyds",
+      "name": "JZ·自建4K-4",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_KZNB",
+      "name": "JZ·自营蓝光-1",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_qq",
+      "name": "JZ·QQ",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_qiyi",
+      "name": "JZ·QY",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_youku",
+      "name": "JZ·YK",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_bilibili",
+      "name": "JZ·BL",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "juzi_mgtv",
+      "name": "JZ·M蓝光",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    },
+    {
+      "id": "liangzi",
+      "name": "量子",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://cj.lziapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "ruyi",
+      "name": "如意",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://cj.rycjapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "360",
+      "name": "360",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://360zyzz.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "dyttzy",
+      "name": "电影天堂",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "http://caiji.dyttzyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "bfzy",
+      "name": "暴风",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://bfzyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "tyyszy",
+      "name": "天涯",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://tyyszy.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "maotaizy",
+      "name": "茅台",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://caiji.maotaizy.cc/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "wolong",
+      "name": "卧龙",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://wolongzyw.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "jisu",
+      "name": "极速",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://jszyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "dbzy",
+      "name": "豆瓣",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://dbzy.tv/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "mozhua",
+      "name": "魔爪",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://mozhuazy.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "mdzy",
+      "name": "魔都",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://www.mdzyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "zuid",
+      "name": "最大",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.zuidapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "yinghua",
+      "name": "樱花",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://m3u8.apiyhzy.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "wujin",
+      "name": "无尽",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.wujinapi.me/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "wwzy",
+      "name": "旺旺短剧",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://wwzy.tv/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "ikun",
+      "name": "iKun",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://ikunzyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "bdzy",
+      "name": "百度",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.apibdzy.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "xinlangaa",
+      "name": "新浪",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "ckzy",
+      "name": "CK",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://ckzy.me/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "ukuapi",
+      "name": "U酷",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.ukuapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "1080zyk",
+      "name": "1080",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.1080zyku.com/inc/apijson.php/"
+      ]
+    },
+    {
+      "id": "hhzyapi",
+      "name": "豪华",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://hhzyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "subocaiji",
+      "name": "速博",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://subocaiji.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "p2100",
+      "name": "飘零",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://p2100.net/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "aqyzy",
+      "name": "爱奇艺",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://iqiyizyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "yzzy",
+      "name": "优质",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.yzzy-api.com/inc/apijson.php/"
+      ]
+    },
+    {
+      "id": "myzy",
+      "name": "猫眼",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://api.maoyanapi.top/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "jinyingzy",
+      "name": "金鹰点播",
+      "protocol": "maccms-json",
+      "enabled": true,
+      "baseUrls": [
+        "https://jinyingzy.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "guangsuapi",
+      "name": "光速",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.guangsuapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "niuniu",
+      "name": "牛牛",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.niuniuzy.me/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "yaya",
+      "name": "鸭鸭",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://cj.yayazy.net/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://www.hongniuzy2.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "suoni",
+      "name": "索尼",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://suoniapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "ffzy",
+      "name": "非凡",
+      "protocol": "maccms-json",
+      "enabled": false,
+      "baseUrls": [
+        "https://api.ffzyapi.com/api.php/provide/vod/",
+        "http://api.ffzyapi.com/api.php/provide/vod/"
+      ]
+    },
+    {
+      "id": "juzi_vod_1080",
+      "name": "JZ·NN蓝光（备用）",
+      "protocol": "juzi-native",
+      "enabled": true,
+      "searchable": true
+    }
+  ],
+  "contentFilter": {
+    "blockedKeywords": [
+      "伦理",
+      "电影解说"
+    ]
+  },
+  "live": {
+    "sourceUrls": [
+      "https://raw.githubusercontent.com/bjzhou/iptv-collector/output/iptv-cm.m3u",
+      "http://20.205.10.127:8787/tvbox/result.txt"
+    ]
+  },
+  "platformLive": {
+    "serviceUrl": "http://20.205.10.127:8868"
+  }
+}
