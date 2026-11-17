@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111507,
-  "updatedAt": "2026-11-15T14:52:05.369Z",
+  "configVersion": 2026111508,
+  "updatedAt": "2026-11-17T09:13:31.883Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -66,7 +66,7 @@
       "id": "juzi_qiyi",
       "name": "JZ·QY",
       "protocol": "juzi-native",
-      "enabled": false,
+      "enabled": true,
       "searchable": true
     },
     {
@@ -103,7 +103,7 @@
       "id": "ruyi",
       "name": "如意",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://cj.rycjapi.com/api.php/provide/vod/"
       ]
@@ -301,7 +301,7 @@
       "id": "subocaiji",
       "name": "速博",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://subocaiji.com/api.php/provide/vod/"
       ]
@@ -337,7 +337,7 @@
       "id": "myzy",
       "name": "猫眼",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://api.maoyanapi.top/api.php/provide/vod/"
       ]
