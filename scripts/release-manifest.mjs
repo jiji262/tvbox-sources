@@ -15,3 +15,19 @@ export function createReleaseManifest(previous, artifact, options) {
   if (!FLAVORS[options.flavor] || errors.length) throw new Error(errors.join("\n") || "不支持的渠道");
   return manifest;
 }
+
+export function createDisabledManifest(previous, options) {
+  if (!FLAVORS[options.flavor]) throw new Error("不支持的渠道");
+  const manifest = {
+    ...previous,
+    schemaVersion: 1,
+    enabled: false,
+    policyRevision: previous.policyRevision + 1,
+    minSupportedVersionCode: 0,
+    force: false,
+    forceMessage: (options.message ?? "").trim(),
+  };
+  const errors = [...validateUpdate(manifest, options.flavor), ...validateUpdateChange(previous, manifest)];
+  if (errors.length) throw new Error(errors.join("\n"));
+  return manifest;
+}

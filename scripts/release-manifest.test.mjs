@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createReleaseManifest } from "./release-manifest.mjs";
+import { createDisabledManifest, createReleaseManifest } from "./release-manifest.mjs";
 import { validateUpdate, validateUpdateChange } from "./updates.mjs";
 
 const previous = { schemaVersion: 1, enabled: false, policyRevision: 1, packageName: "com.dangdang.tv",
@@ -60,4 +60,19 @@ test("停用后重新发布仍须保持版本与签名兼容", () => {
   }
   assert.ok(validateUpdateChange(enabled, { ...previous, policyRevision: 3 }).length > 0,
     "停用时不能删除用于约束后续升级的 APK 元数据");
+});
+
+test("一键停用更新自动清除强更阈值、保留历史签名与版本元数据并递增修订号", () => {
+  const enabled = createReleaseManifest(previous, artifact, {
+    flavor: "modern", mode: "force", message: "请升级", changelog: ["修复问题"],
+  });
+  const disabled = createDisabledManifest(enabled, { flavor: "modern" });
+  assert.equal(disabled.enabled, false);
+  assert.equal(disabled.force, false);
+  assert.equal(disabled.minSupportedVersionCode, 0);
+  assert.equal(disabled.policyRevision, enabled.policyRevision + 1);
+  assert.equal(disabled.versionCode, enabled.versionCode);
+  assert.equal(disabled.signingCertificateSha256, enabled.signingCertificateSha256);
+  assert.deepEqual(validateUpdate(disabled, "modern"), []);
+  assert.deepEqual(validateUpdateChange(enabled, disabled), []);
 });

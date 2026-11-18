@@ -52,6 +52,9 @@ node scripts/publish-update.mjs --flavor modern \
 node scripts/publish-update.mjs --flavor legacy \
   --apk /path/to/legacy.apk --apk-url https://你的下载域名/legacy.apk \
   --min-supported-version-code 10314 --message '请升级到受支持的版本'
+
+# 一键停用当前渠道更新并解除强更（自动保留历史 APK 元数据并递增修订号）。
+node scripts/publish-update.mjs --flavor modern --disable
 ```
 
 添加 `--dry-run` 只预览本地 APK 信息、不检查远端也不改清单；`--changelog '更新说明'` 可重复传入。脚本从真实 APK 提取版本、包名、最低系统、签名证书、大小及 SHA-256，自动递增 `policyRevision`，不会上传 APK、提交或部署。两个渠道分别执行，不能交叉使用安装包。
