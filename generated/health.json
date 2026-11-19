@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-17T09:13:31.883Z",
-  "configVersion": 2026111508,
+  "checkedAt": "2026-11-19T08:48:48.956Z",
+  "configVersion": 2026111509,
   "baselineSha256": "a54f9c5d0aeaf2f97ccfc8835d546d1a54530edb94c9e50ce5b049a18ea7fbd0",
   "node": "github-actions",
   "available": 16,
@@ -14,7 +14,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "source_timeout",
-      "elapsedMs": 29999,
+      "elapsedMs": 30001,
       "lastSuccessAt": "2026-11-15T13:58:00.789Z"
     },
     {
@@ -23,8 +23,8 @@
       "protocol": "juzi-native",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 1452,
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "elapsedMs": 1570,
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "juzi_tocyyds",
@@ -32,8 +32,8 @@
       "protocol": "juzi-native",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 2465,
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "elapsedMs": 8655,
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "juzi_KZNB",
@@ -41,8 +41,8 @@
       "protocol": "juzi-native",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 5076,
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "elapsedMs": 2330,
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "juzi_qq",
@@ -50,16 +50,17 @@
       "protocol": "juzi-native",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 2269,
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "elapsedMs": 2594,
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "juzi_qiyi",
       "name": "JZ·QY",
       "protocol": "juzi-native",
-      "status": "available",
+      "status": "unavailable",
       "stage": "media",
-      "elapsedMs": 7232,
+      "code": "invalid_video_data",
+      "elapsedMs": 12641,
       "lastSuccessAt": "2026-11-17T09:13:31.883Z"
     },
     {
@@ -68,46 +69,52 @@
       "protocol": "juzi-native",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 19219,
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "elapsedMs": 2879,
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "juzi_bilibili",
       "name": "JZ·BL",
       "protocol": "juzi-native",
-      "status": "available",
-      "stage": "media",
-      "elapsedMs": 7111,
+      "status": "unavailable",
+      "stage": "request",
+      "code": "source_timeout",
+      "elapsedMs": 30001,
       "lastSuccessAt": "2026-11-17T09:13:31.883Z"
     },
     {
       "id": "juzi_mgtv",
       "name": "JZ·M蓝光",
       "protocol": "juzi-native",
-      "status": "available",
-      "stage": "media",
-      "elapsedMs": 6023,
+      "status": "unavailable",
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 6564,
       "lastSuccessAt": "2026-11-17T09:13:31.883Z"
     },
     {
       "id": "liangzi",
       "name": "量子",
       "protocol": "maccms-json",
-      "status": "unavailable",
-      "stage": "request",
-      "code": "network_or_format_error",
-      "elapsedMs": 2041,
-      "lastSuccessAt": null
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 4183,
+      "healthyUrls": [
+        "https://cj.lziapi.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "ruyi",
       "name": "如意",
       "protocol": "maccms-json",
-      "status": "unavailable",
-      "stage": "request",
-      "code": "http_403",
-      "elapsedMs": 9919,
-      "lastSuccessAt": "2026-11-15T14:52:05.369Z"
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 8901,
+      "healthyUrls": [
+        "https://cj.rycjapi.com/api.php/provide/vod/"
+      ],
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "360",
@@ -115,11 +122,11 @@
       "protocol": "maccms-json",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 3956,
+      "elapsedMs": 3899,
       "healthyUrls": [
         "https://360zyzz.com/api.php/provide/vod/"
       ],
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "dyttzy",
@@ -128,7 +135,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 8759,
+      "elapsedMs": 6917,
       "lastSuccessAt": null
     },
     {
@@ -137,11 +144,11 @@
       "protocol": "maccms-json",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 4309,
+      "elapsedMs": 7534,
       "healthyUrls": [
         "https://bfzyapi.com/api.php/provide/vod/"
       ],
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "tyyszy",
@@ -150,7 +157,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 568,
+      "elapsedMs": 469,
       "lastSuccessAt": null
     },
     {
@@ -160,7 +167,7 @@
       "status": "unavailable",
       "stage": "search",
       "code": "empty_result",
-      "elapsedMs": 3084,
+      "elapsedMs": 2411,
       "lastSuccessAt": null
     },
     {
@@ -170,7 +177,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 631,
+      "elapsedMs": 643,
       "lastSuccessAt": null
     },
     {
@@ -178,9 +185,9 @@
       "name": "极速",
       "protocol": "maccms-json",
       "status": "unavailable",
-      "stage": "media",
-      "code": "invalid_video_data",
-      "elapsedMs": 2169,
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 24828,
       "lastSuccessAt": null
     },
     {
@@ -190,7 +197,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 543,
+      "elapsedMs": 415,
       "lastSuccessAt": null
     },
     {
@@ -200,7 +207,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 584,
+      "elapsedMs": 524,
       "lastSuccessAt": null
     },
     {
@@ -209,11 +216,11 @@
       "protocol": "maccms-json",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 2368,
+      "elapsedMs": 3653,
       "healthyUrls": [
         "https://www.mdzyapi.com/api.php/provide/vod/"
       ],
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "zuid",
@@ -222,7 +229,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 2455,
+      "elapsedMs": 2059,
       "lastSuccessAt": null
     },
     {
@@ -232,7 +239,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 700,
+      "elapsedMs": 760,
       "lastSuccessAt": null
     },
     {
@@ -242,7 +249,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 3716,
+      "elapsedMs": 4643,
       "lastSuccessAt": null
     },
     {
@@ -252,7 +259,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 648,
+      "elapsedMs": 470,
       "lastSuccessAt": null
     },
     {
@@ -261,11 +268,11 @@
       "protocol": "maccms-json",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 2487,
+      "elapsedMs": 2304,
       "healthyUrls": [
         "https://ikunzyapi.com/api.php/provide/vod/"
       ],
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "bdzy",
@@ -274,19 +281,17 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 90,
+      "elapsedMs": 30,
       "lastSuccessAt": null
     },
     {
       "id": "xinlangaa",
       "name": "新浪",
       "protocol": "maccms-json",
-      "status": "available",
-      "stage": "media",
-      "elapsedMs": 1915,
-      "healthyUrls": [
-        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/"
-      ],
+      "status": "unavailable",
+      "stage": "request",
+      "code": "source_timeout",
+      "elapsedMs": 30000,
       "lastSuccessAt": "2026-11-17T09:13:31.883Z"
     },
     {
@@ -295,11 +300,11 @@
       "protocol": "maccms-json",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 1477,
+      "elapsedMs": 1193,
       "healthyUrls": [
         "https://ckzy.me/api.php/provide/vod/"
       ],
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "ukuapi",
@@ -308,27 +313,29 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 5950,
+      "elapsedMs": 5687,
       "lastSuccessAt": null
     },
     {
       "id": "1080zyk",
       "name": "1080",
       "protocol": "maccms-json",
-      "status": "unavailable",
-      "stage": "search",
-      "code": "empty_result",
-      "elapsedMs": 3470,
-      "lastSuccessAt": null
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 4927,
+      "healthyUrls": [
+        "https://api.1080zyku.com/inc/apijson.php/"
+      ],
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "hhzyapi",
       "name": "豪华",
       "protocol": "maccms-json",
       "status": "unavailable",
-      "stage": "media",
-      "code": "invalid_video_data",
-      "elapsedMs": 3410,
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 25765,
       "lastSuccessAt": null
     },
     {
@@ -336,9 +343,9 @@
       "name": "速博",
       "protocol": "maccms-json",
       "status": "unavailable",
-      "stage": "media",
-      "code": "invalid_video_data",
-      "elapsedMs": 3554,
+      "stage": "request",
+      "code": "network_or_format_error",
+      "elapsedMs": 26480,
       "lastSuccessAt": "2026-11-15T14:52:05.369Z"
     },
     {
@@ -348,7 +355,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 83,
+      "elapsedMs": 31,
       "lastSuccessAt": null
     },
     {
@@ -357,21 +364,23 @@
       "protocol": "maccms-json",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 6138,
+      "elapsedMs": 7725,
       "healthyUrls": [
         "https://iqiyizyapi.com/api.php/provide/vod/"
       ],
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "yzzy",
       "name": "优质",
       "protocol": "maccms-json",
-      "status": "unavailable",
-      "stage": "search",
-      "code": "empty_result",
-      "elapsedMs": 2082,
-      "lastSuccessAt": null
+      "status": "available",
+      "stage": "media",
+      "elapsedMs": 1257,
+      "healthyUrls": [
+        "https://api.yzzy-api.com/inc/apijson.php/"
+      ],
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     },
     {
       "id": "myzy",
@@ -380,7 +389,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 4093,
+      "elapsedMs": 3657,
       "lastSuccessAt": "2026-11-15T14:52:05.369Z"
     },
     {
@@ -388,9 +397,9 @@
       "name": "金鹰点播",
       "protocol": "maccms-json",
       "status": "unavailable",
-      "stage": "media",
-      "code": "invalid_video_data",
-      "elapsedMs": 5752,
+      "stage": "search",
+      "code": "empty_result",
+      "elapsedMs": 625,
       "lastSuccessAt": "2026-11-15T14:02:46.854Z"
     },
     {
@@ -398,9 +407,9 @@
       "name": "光速",
       "protocol": "maccms-json",
       "status": "unavailable",
-      "stage": "media",
-      "code": "invalid_video_data",
-      "elapsedMs": 2896,
+      "stage": "request",
+      "code": "http_403",
+      "elapsedMs": 215,
       "lastSuccessAt": null
     },
     {
@@ -410,7 +419,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 599,
+      "elapsedMs": 634,
       "lastSuccessAt": null
     },
     {
@@ -420,7 +429,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 630,
+      "elapsedMs": 594,
       "lastSuccessAt": null
     },
     {
@@ -430,7 +439,7 @@
       "status": "unavailable",
       "stage": "media",
       "code": "invalid_video_data",
-      "elapsedMs": 6059,
+      "elapsedMs": 4224,
       "lastSuccessAt": null
     },
     {
@@ -440,7 +449,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "network_or_format_error",
-      "elapsedMs": 472,
+      "elapsedMs": 808,
       "lastSuccessAt": null
     },
     {
@@ -450,7 +459,7 @@
       "status": "unavailable",
       "stage": "request",
       "code": "http_403",
-      "elapsedMs": 12540,
+      "elapsedMs": 15333,
       "lastSuccessAt": null
     },
     {
@@ -459,8 +468,8 @@
       "protocol": "juzi-native",
       "status": "available",
       "stage": "media",
-      "elapsedMs": 3314,
-      "lastSuccessAt": "2026-11-17T09:13:31.883Z"
+      "elapsedMs": 3234,
+      "lastSuccessAt": "2026-11-19T08:48:48.956Z"
     }
   ]
 }

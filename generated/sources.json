@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111508,
-  "updatedAt": "2026-11-17T09:13:31.883Z",
+  "configVersion": 2026111509,
+  "updatedAt": "2026-11-19T08:48:48.956Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -66,7 +66,7 @@
       "id": "juzi_qiyi",
       "name": "JZ·QY",
       "protocol": "juzi-native",
-      "enabled": true,
+      "enabled": false,
       "searchable": true
     },
     {
@@ -80,21 +80,21 @@
       "id": "juzi_bilibili",
       "name": "JZ·BL",
       "protocol": "juzi-native",
-      "enabled": true,
+      "enabled": false,
       "searchable": true
     },
     {
       "id": "juzi_mgtv",
       "name": "JZ·M蓝光",
       "protocol": "juzi-native",
-      "enabled": true,
+      "enabled": false,
       "searchable": true
     },
     {
       "id": "liangzi",
       "name": "量子",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://cj.lziapi.com/api.php/provide/vod/"
       ]
@@ -103,7 +103,7 @@
       "id": "ruyi",
       "name": "如意",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://cj.rycjapi.com/api.php/provide/vod/"
       ]
@@ -256,9 +256,10 @@
       "id": "xinlangaa",
       "name": "新浪",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
-        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/"
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/",
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
       ]
     },
     {
@@ -283,7 +284,7 @@
       "id": "1080zyk",
       "name": "1080",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://api.1080zyku.com/inc/apijson.php/"
       ]
@@ -328,7 +329,7 @@
       "id": "yzzy",
       "name": "优质",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://api.yzzy-api.com/inc/apijson.php/"
       ]
