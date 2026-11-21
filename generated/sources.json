@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111509,
-  "updatedAt": "2026-11-19T08:48:48.956Z",
+  "configVersion": 2026111510,
+  "updatedAt": "2026-11-21T08:17:48.881Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -284,7 +284,7 @@
       "id": "1080zyk",
       "name": "1080",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://api.1080zyku.com/inc/apijson.php/"
       ]
@@ -329,7 +329,7 @@
       "id": "yzzy",
       "name": "优质",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://api.yzzy-api.com/inc/apijson.php/"
       ]
