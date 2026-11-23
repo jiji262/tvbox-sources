@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111510,
-  "updatedAt": "2026-11-21T08:17:48.881Z",
+  "configVersion": 2026111511,
+  "updatedAt": "2026-11-23T09:00:54.340Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -94,7 +94,7 @@
       "id": "liangzi",
       "name": "量子",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://cj.lziapi.com/api.php/provide/vod/"
       ]
