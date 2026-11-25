@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111511,
-  "updatedAt": "2026-11-23T09:00:54.340Z",
+  "configVersion": 2026111512,
+  "updatedAt": "2026-11-25T09:51:43.963Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -130,7 +130,7 @@
       "id": "bfzy",
       "name": "暴风",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://bfzyapi.com/api.php/provide/vod/"
       ]
@@ -347,7 +347,7 @@
       "id": "jinyingzy",
       "name": "金鹰点播",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://jinyingzy.com/api.php/provide/vod/"
       ]
@@ -383,7 +383,7 @@
       "id": "hongniu",
       "name": "红牛",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://www.hongniuzy2.com/api.php/provide/vod/"
       ]
