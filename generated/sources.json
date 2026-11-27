@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026111512,
-  "updatedAt": "2026-11-25T09:51:43.963Z",
+  "configVersion": 2026112702,
+  "updatedAt": "2026-11-27T04:05:50.462Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -256,10 +256,9 @@
       "id": "xinlangaa",
       "name": "新浪",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
-        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/",
-        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/"
       ]
     },
     {
@@ -302,7 +301,7 @@
       "id": "subocaiji",
       "name": "速博",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://subocaiji.com/api.php/provide/vod/"
       ]
@@ -347,7 +346,7 @@
       "id": "jinyingzy",
       "name": "金鹰点播",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://jinyingzy.com/api.php/provide/vod/"
       ]
@@ -423,6 +422,11 @@
   },
   "live": {
     "sourceUrls": [
+      "https://cdn.jsdelivr.net/gh/best-fan/iptv-sources@master/cn_all_status.m3u8",
+      "https://raw.gitmirror.com/best-fan/iptv-sources/master/cn_all_status.m3u8",
+      "https://raw.githubusercontent.com/best-fan/iptv-sources/master/cn_all_status.m3u8",
+      "https://cdn.jsdelivr.net/gh/bjzhou/iptv-collector@output/iptv-cm.m3u",
+      "https://raw.gitmirror.com/bjzhou/iptv-collector/output/iptv-cm.m3u",
       "https://raw.githubusercontent.com/bjzhou/iptv-collector/output/iptv-cm.m3u",
       "http://20.205.10.127:8787/tvbox/result.txt"
     ]
