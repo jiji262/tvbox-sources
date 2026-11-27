@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "enabled": true,
-  "policyRevision": 2,
+  "policyRevision": 3,
   "packageName": "com.dangdang.tv",
   "versionCode": 10314,
   "versionName": "1.3.14",
@@ -9,7 +9,7 @@
   "apkSize": 75898899,
   "apkSha256": "ff7c4e8f46fb58ae5a591550507614a426014e4eb6cb6ab87adba72335318f36",
   "signingCertificateSha256": "8e9c571921df5bb3a22969d042c6d903f3775749aa6459b52203f5887769adef",
-  "apkUrl": "https://github.com/jiji262/tvbox-sources/releases/download/app-v1.3.14/DangDangTV-v1.3.14-debug.apk",
+  "apkUrl": "https://dl.navs.dpdns.org/DangDangTV-v1.3.14-debug.apk",
   "minSupportedVersionCode": 10314,
   "force": true,
   "forceMessage": "旧版本短剧接口已失效，请升级到 v1.3.14 后继续使用",
