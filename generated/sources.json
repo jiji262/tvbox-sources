@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2026112702,
-  "updatedAt": "2026-11-27T04:05:50.462Z",
+  "configVersion": 2026112703,
+  "updatedAt": "2026-11-27T09:41:10.066Z",
   "defaultHomeLineId": "juzi_newxfyun",
   "configUrls": [
     "https://tv.navs.dpdns.org/sources.json",
@@ -256,9 +256,10 @@
       "id": "xinlangaa",
       "name": "新浪",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
-        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/"
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/",
+        "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
       ]
     },
     {
@@ -301,7 +302,7 @@
       "id": "subocaiji",
       "name": "速博",
       "protocol": "maccms-json",
-      "enabled": true,
+      "enabled": false,
       "baseUrls": [
         "https://subocaiji.com/api.php/provide/vod/"
       ]
@@ -337,7 +338,7 @@
       "id": "myzy",
       "name": "猫眼",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://api.maoyanapi.top/api.php/provide/vod/"
       ]
@@ -346,7 +347,7 @@
       "id": "jinyingzy",
       "name": "金鹰点播",
       "protocol": "maccms-json",
-      "enabled": false,
+      "enabled": true,
       "baseUrls": [
         "https://jinyingzy.com/api.php/provide/vod/"
       ]
